@@ -19,6 +19,10 @@
     "standard": "^6.0.7",
     "tape": "^4.4.0"
   },
+  "bin":{
+    "cat": "./bin/cat",
+    "catuv": "./bin/cat"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:eljefedelrodeodeljefe/cat.git"
