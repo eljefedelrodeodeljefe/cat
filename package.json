@@ -1,7 +1,7 @@
 {
   "name": "cat",
   "description": "Universal cat. Have easy cat without installing binaries.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {},
   "scripts": {
     "lint": "standard .",
