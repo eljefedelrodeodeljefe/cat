@@ -18,12 +18,12 @@ if (!param_1) {
 //   opts = parseOptions(param_1)
 // }
 
-if (fs.statSync(param).isFile()) {
-  fs.createReadStream(param)
+if (fs.statSync(param_1).isFile()) {
+  fs.createReadStream(param_1)
     .pipe(process.stdout)
   return
-} else if (fs.statSync(param).isDirectory()) {
-  console.log(`cat: ${param}: Is a directory`)
+} else if (fs.statSync(param_1).isDirectory()) {
+  console.log(`cat: ${param_1}: Is a directory`)
   return
 } else {
   // noop
