@@ -1,30 +1,21 @@
 #!/usr/bin/env node
 'use strict'
 const fs = require('fs')
-const param = process.argv[2]
 const usage = require('../lib/usage').usage
-const illegalOption = require('../lib/usage').illegalOption
+// const illegalOption = require('../lib/options').illegalOption
+// const parseOptions = require('../lib/options').parseOptions
 
-if (!param) {
+const param_1 = process.argv[2]
+const param_2 = process.argv[3]
+let opts
+
+if (!param_1) {
   process.stdin.pipe(process.stdout)
   return
 }
 
-if (param.indexOf('-') === 0) {
-  switch (param[1]) {
-    case '-':
-
-      break;
-    default:
-
-  }
-}
-
-
-
-// if (process.argv[2].indexOf('--') === 0) {
-//   usage()
-//   return
+// if (param_1 && param_2) {
+//   opts = parseOptions(param_1)
 // }
 
 if (fs.statSync(param).isFile()) {
@@ -35,54 +26,5 @@ if (fs.statSync(param).isFile()) {
   console.log(`cat: ${param}: Is a directory`)
   return
 } else {
-
+  // noop
 }
-
-
-// // bail early if --help
-// const usage = require('../lib/usage').usage
-// if (process.argv.length <= 2 || process.argv.indexOf('--help') > - 1) {
-//   return usage()
-// }
-//
-// const Curl = require('node-libcurl').Curl
-// let curl = new Curl();
-//
-// const optMap = require('../lib/options').optMap
-// const curlBoolMapList = require('../lib/options').curlBoolMapList
-//
-// const argv = process.argv.slice(2)
-//
-// function parseOptions (argv) {
-//   let url = argv.pop()
-//
-//   let len = argv.length
-//   let opts = {}
-//   opts['URL'] = url
-//   // check for string that begins with '-', '--', a string that follows, that
-//   // does not start with option delimiter and is not the url
-//   argv.forEach(function (el, index, array) {
-//     let key = '', val
-//
-//     if (!(el[0] === '-' || el[1] === '-')) return
-//     if (optMap[el]) key = optMap[el]
-//     if (index !== len - 1 && array[index + 1][0] !== '-') val = array[index + 1]
-//     if (!val && key && curlBoolMapList.indexOf(key) > - 1) val = true
-//
-//     key ? opts[key] = val : 0
-//   })
-//
-//   for (let key in opts) {
-//     curl.setOpt(key, opts[key]);
-//   }
-// }
-//
-// parseOptions(argv)
-//
-// curl.on( 'end', function( statusCode, body, headers ) {
-//     console.log(body);
-//     this.close();
-// });
-//
-// curl.on( 'error', curl.close.bind( curl ) );
-// curl.perform();
